@@ -1,4 +1,4 @@
-package com.brunonevesdev.acesso_api.domain.ports.entrada;
+package com.brunonevesdev.acesso_api.core.ports.entrada;
 
 import com.brunonevesdev.acesso_api.domain.Usuario;
 

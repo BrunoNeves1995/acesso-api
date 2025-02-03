@@ -2,7 +2,8 @@ package com.brunonevesdev.acesso_api.adapter.controllers;
 
 import com.brunonevesdev.acesso_api.adapter.converters.UsuarioConverter;
 import com.brunonevesdev.acesso_api.adapter.dtos.UsuarioDTO;
-import com.brunonevesdev.acesso_api.domain.ports.entrada.UsuarioServicePort;
+import com.brunonevesdev.acesso_api.core.ports.entrada.UsuarioServicePort;
+import com.brunonevesdev.acesso_api.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,7 @@ public class UsuarioController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDTO create(@RequestBody UsuarioDTO usuarioDTO){
-        return usuarioConverter
-                .toDTO(usuarioServicePort.createUsuario(usuarioConverter
-                        .toDomain((usuarioDTO))));
-
+        Usuario usuario = usuarioServicePort.createUsuario(usuarioConverter.toDomain(usuarioDTO));
+        return usuarioConverter.toDTO(usuario);
     }
 }
