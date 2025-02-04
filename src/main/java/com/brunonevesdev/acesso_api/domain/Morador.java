@@ -54,7 +54,7 @@ public class Morador {
         return pessoa;
     }
 
-    public void setPessoa(Long pessoa) {
+    public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
 }
