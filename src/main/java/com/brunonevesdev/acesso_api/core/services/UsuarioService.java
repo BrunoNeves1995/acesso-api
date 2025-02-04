@@ -17,6 +17,10 @@ public class UsuarioService implements UsuarioServicePort {
 
     @Override
     public Usuario createUsuario(Usuario usuario) {
+        Usuario usuarioExistente  = usuarioRepositoryPort.ObtenEmail(usuario.getEmail());
+        if (usuarioExistente != null){
+            throw  new IllegalArgumentException("Usuario ja existe!");
+        }
         return usuarioRepositoryPort.create(usuario);
     }
 }
