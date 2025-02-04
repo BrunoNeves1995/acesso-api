@@ -14,11 +14,11 @@ public class MoradorConverter {
                 moradorDTO.getCpf(),
                 moradorDTO.getEndereco(),
                 moradorDTO.getCelular(),
-                moradorDTO.getPessoa()
+                new Pessoa(null, moradorDTO.getNome())
         );
     }
 
     public MoradorDTO toDTO(Morador morador){
-        return new MoradorDTO(morador.getId(), morador.getCpf(), morador.getEndereco(), morador.getCelular(), morador.getPessoa());
+        return new MoradorDTO(morador.getId(), morador.getPessoa().getNome(),morador.getCpf(), morador.getEndereco(), morador.getCelular());
     }
 }

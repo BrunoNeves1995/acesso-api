@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class MoradorDTO {
     private Long id;
+    private String nome;
     private String cpf;
     private String endereco;
     private String celular;
-    private Pessoa pessoa;
+
 
 }
