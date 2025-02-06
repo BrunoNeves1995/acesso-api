@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
 public class UsuarioRepositoryAdapter implements UsuarioRepositoryPort {
 
     private final UsuarioRepository usuarioRepository;
-    private final PessoaRepository pessoaRepository;
+    private final PessoaRepositoryAdapter pessoaRepositoryAdapter;
     private final ModelMapper modelMapper;
 
     @Override
     public Usuario create(Usuario usuario) {
 
         UsuarioEntity usuarioEntityMap = modelMapper.map(usuario, UsuarioEntity.class);
-        usuarioEntityMap.setPessoaEntity(createPessoa(usuario.getPessoa()));
+        usuarioEntityMap.setPessoaEntity(pessoaRepositoryAdapter.createPessoa(usuario.getPessoa()));
         UsuarioEntity novoUsuarioEntity = usuarioRepository.save(usuarioEntityMap);
 
         return modelMapper.map(novoUsuarioEntity, Usuario.class);
@@ -37,10 +37,5 @@ public class UsuarioRepositoryAdapter implements UsuarioRepositoryPort {
         }
         return modelMapper.map(usuarioEntity, Usuario.class);
 
-    }
-
-    private PessoaEntity createPessoa(Pessoa pessoa){
-        PessoaEntity pessoaEntityMap = modelMapper.map(pessoa, PessoaEntity.class);
-        return pessoaRepository.save(pessoaEntityMap);
     }
 }

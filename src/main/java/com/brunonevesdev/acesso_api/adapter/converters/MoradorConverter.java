@@ -5,7 +5,9 @@ import com.brunonevesdev.acesso_api.adapter.dtos.UsuarioDTO;
 import com.brunonevesdev.acesso_api.domain.Morador;
 import com.brunonevesdev.acesso_api.domain.Pessoa;
 import com.brunonevesdev.acesso_api.domain.Usuario;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MoradorConverter {
 
     public Morador toDomain(MoradorDTO moradorDTO){

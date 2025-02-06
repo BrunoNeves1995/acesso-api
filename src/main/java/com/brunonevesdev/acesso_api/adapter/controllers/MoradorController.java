@@ -20,7 +20,7 @@ public class MoradorController {
     @ResponseStatus(HttpStatus.CREATED)
     public MoradorDTO create(@RequestBody MoradorDTO moradorDTO){
 
-        Morador moradorNovo = moradorServicePort.createMorador(moradorConverter.toDomain(moradorDTO));
-        return  moradorConverter.toDTO(moradorNovo);
+        Morador novoMorador = moradorServicePort.createMorador(moradorConverter.toDomain(moradorDTO));
+        return  moradorConverter.toDTO(novoMorador);
     }
 }
